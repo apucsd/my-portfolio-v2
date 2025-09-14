@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.font-jetbrains {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    
+}
+
+body {
+    font-family: 'Fira Code', monospace;
+}
+
+
+.radial-bg {
+    @apply bg-[radial-gradient(circle,_#1C254B,_#030C1C)]
+  }
+
+
