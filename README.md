@@ -94,10 +94,9 @@ Contributions, issues, and feature requests are welcome! Feel free to check the 
 
 ## 📬 Contact
 
-Your Name - [@yourtwitter](https://twitter.com/yourtwitter) - your.email@example.com
 
-Project Link: [https://github.com/apucsd/my-portfolio-v2](https://github.com/apucsd/my-portfolio-v2)
+Project Link: [https://apusutradhar.vercel.app/](https://apusutradhar.vercel.app/)
 
 ---
 
-⭐️ From [Your Name](https://github.com/apucsd)
+⭐️ From [Apu Sutra Dhar](https://github.com/apucsd)
