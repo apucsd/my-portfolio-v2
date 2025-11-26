@@ -1,19 +1,23 @@
 import React from 'react';
 import { Github, Linkedin, Mail } from 'lucide-react';
+import { useGetContactLinksQuery } from '../../store/apiSlice';
 
 interface SocialLinksProps {
   className?: string;
   iconSize?: number;
 }
 
-const SocialLinks: React.FC<SocialLinksProps> = ({ 
-  className = '', 
-  iconSize = 20 
+const SocialLinks: React.FC<SocialLinksProps> = ({
+
+  className = '',
+  iconSize = 20
 }) => {
+  const { data: contact } = useGetContactLinksQuery()
+
   const socialLinks = [
-    { name: 'GitHub', icon: <Github size={iconSize} />, url: 'https://github.com/apucsd' },
-    { name: 'LinkedIn', icon: <Linkedin size={iconSize} />, url: 'https://linkedin.com/in/apusutradhar77' },
-    { name: 'Email', icon: <Mail size={iconSize} />, url: 'mailto:apusutradhar77@gmail.com' },
+    { name: 'GitHub', icon: <Github size={iconSize} />, url: contact?.[0].github || 'https://github.com/apucsd' },
+    { name: 'LinkedIn', icon: <Linkedin size={iconSize} />, url: contact?.[0].linkedin || 'https://linkedin.com/in/apusutradhar77' },
+    { name: 'Email', icon: <Mail size={iconSize} />, url: contact?.[0].email || 'mailto:apusutradhar77@gmail.com' },
   ];
 
   return (

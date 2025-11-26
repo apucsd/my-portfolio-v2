@@ -5,6 +5,7 @@ import { Heart } from 'lucide-react';
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
+
   return (
     <footer className="bg-white dark:bg-[radial-gradient(circle,_#1C254B,_#030C1C)] py-12">
       <div className="container mx-auto px-4">

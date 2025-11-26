@@ -1,6 +1,9 @@
-import { ArrowDown, Github, Linkedin, Instagram, Mail,Code, Zap, Star } from 'lucide-react';
+import { ArrowDown, Github, Linkedin, Mail, Code, Zap, Star, Facebook } from 'lucide-react';
+import { useGetContactLinksQuery } from '../../store/apiSlice';
 
 const Hero = () => {
+
+  const { data } = useGetContactLinksQuery()
   const scrollToAbout = () => {
     const aboutSection = document.querySelector('#about');
     if (aboutSection) {
@@ -25,7 +28,7 @@ const Hero = () => {
         {/* Gradient Orbs */}
         <div className="absolute top-20 left-10 w-48 h-48 md:w-72 md:h-72 bg-orange-500/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 right-10 w-64 h-64 md:w-96 md:h-96 bg-red-500/10 rounded-full blur-3xl"></div>
-        
+
         {/* Grid Pattern */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:30px_30px] md:bg-[size:50px_50px] dark:bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)]"></div>
       </div>
@@ -80,7 +83,7 @@ const Hero = () => {
               </a> */}
 
 
-             
+
             </div>
 
             {/* Social Links */}
@@ -88,7 +91,7 @@ const Hero = () => {
               <span className="text-xs text-zinc-500 dark:text-zinc-400 font-medium">Connect with me:</span>
               <div className="flex gap-2">
                 <a
-                  href="https://github.com/apucsd"
+                  href={data?.[0]?.github || "https://github.com/apucsd"}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group p-2.5 rounded-lg bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-600 dark:text-zinc-400 hover:text-primary dark:hover:text-primary hover:border-primary dark:hover:border-primary hover:bg-primary/10 dark:hover:bg-primary/10 transition-all duration-300 hover:scale-110"
@@ -96,7 +99,7 @@ const Hero = () => {
                   <Github size={18} className="group-hover:rotate-12 transition-transform duration-300" />
                 </a>
                 <a
-                  href="https://linkedin.com/in/apusutradhar77"
+                  href={data?.[0]?.linkedin || "https://linkedin.com/in/apusutradhar77"}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group p-2.5 rounded-lg bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-600 dark:text-zinc-400 hover:text-primary dark:hover:text-primary hover:border-primary dark:hover:border-primary hover:bg-primary/10 dark:hover:bg-primary/10 transition-all duration-300 hover:scale-110"
@@ -104,12 +107,12 @@ const Hero = () => {
                   <Linkedin size={18} className="group-hover:rotate-12 transition-transform duration-300" />
                 </a>
                 <a
-                  href="https://instagram.com/apucsd"
+                  href={data?.[0]?.facebook || "https://instagram.com/apucsd"}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group p-2.5 rounded-lg bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-600 dark:text-zinc-400 hover:text-primary dark:hover:text-primary hover:border-primary dark:hover:border-primary hover:bg-primary/10 dark:hover:bg-primary/10 transition-all duration-300 hover:scale-110"
                 >
-                  <Instagram size={18} className="group-hover:rotate-12 transition-transform duration-300" />
+                  <Facebook size={18} className="group-hover:rotate-12 transition-transform duration-300" />
                 </a>
               </div>
             </div>
@@ -120,7 +123,7 @@ const Hero = () => {
             <div className="relative">
               {/* Subtle Background Glow */}
               <div className="absolute inset-0 w-64 h-64 sm:w-80 sm:h-80 bg-gradient-to-br from-primary/8 to-red-500/8 rounded-full blur-2xl"></div>
-              
+
               {/* Main Image Container */}
               <div className="relative w-64 h-64 sm:w-80 sm:h-80">
                 {/* Clean Border Frame */}
@@ -135,11 +138,11 @@ const Hero = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 {/* Clean Shadow */}
                 <div className="absolute inset-0 rounded-2xl shadow-xl"></div>
               </div>
-              
+
               {/* Simple Skill Indicators - Hidden on mobile */}
               <div className="hidden md:block absolute -top-4 -right-4 bg-white dark:bg-zinc-800 rounded-xl p-3 shadow-lg border border-zinc-200 dark:border-zinc-700">
                 <div className="flex items-center gap-2">
@@ -147,14 +150,14 @@ const Hero = () => {
                   <span className="text-sm font-medium text-zinc-700 dark:text-zinc-300">JavaScript</span>
                 </div>
               </div>
-              
+
               <div className="hidden md:block absolute -bottom-4 -left-4 bg-white dark:bg-zinc-800 rounded-xl p-3 shadow-lg border border-zinc-200 dark:border-zinc-700">
                 <div className="flex items-center gap-2">
                   <Zap size={16} className="text-secondary dark:text-primary" />
                   <span className="text-sm font-medium text-zinc-700 dark:text-zinc-300">TypeScript</span>
                 </div>
               </div>
-              
+
               <div className="hidden md:block absolute top-1/2 -left-6 transform -translate-y-1/2 bg-white dark:bg-zinc-800 rounded-xl p-3 shadow-lg border border-zinc-200 dark:border-zinc-700">
                 <div className="flex items-center gap-2">
                   <Star size={16} className="text-secondary dark:text-primary" />

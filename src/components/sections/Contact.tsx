@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Section from '../ui/Section';
 import { Mail, Phone, MapPin, Send, Check } from 'lucide-react';
 import emailjs from '@emailjs/browser';
+import { useGetContactLinksQuery } from '../../store/apiSlice';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -22,7 +23,7 @@ const Contact: React.FC = () => {
     e.preventDefault();
     setIsSubmitting(true);
     console.log("Sending email with data:", formData); // Debug log
-  
+
     try {
       const templateParams = {
         from_name: formData.name,
@@ -30,16 +31,16 @@ const Contact: React.FC = () => {
         subject: formData.subject,
         message: formData.message
       };
-  
+
       // console.log("Template params:", templateParams); // Debug log
-  
-       await emailjs.send(
-        "service_492g0fo",      
-        "template_s8zeb6a",     
+
+      await emailjs.send(
+        "service_492g0fo",
+        "template_s8zeb6a",
         templateParams,  // Use the properly formatted template params
-        "LkEYGZbuMCHpLLtwc"       
+        "LkEYGZbuMCHpLLtwc"
       );
-      
+
       // console.log("EmailJS Response:", response);
       setIsSuccess(true);
       setFormData({ name: '', email: '', subject: '', message: '' });
@@ -53,6 +54,8 @@ const Contact: React.FC = () => {
       setIsSubmitting(false);
     }
   };
+
+  const { data: contact } = useGetContactLinksQuery()
 
   return (
     <Section
@@ -74,8 +77,8 @@ const Contact: React.FC = () => {
               </div>
               <div>
                 <h4 className="font-medium text-gray-900 dark:text-white">Email</h4>
-                <a href="mailto:apusutradhar77@gmail.com" className="text-gray-600 dark:text-gray-300 hover:text-primary">
-                  apusutradhar77@gmail.com
+                <a href={`mailto:${contact?.[0].email || "apusutradhar77@gmail.com"}`} className="text-gray-600 dark:text-gray-300 hover:text-primary">
+                  {contact?.[0].email || "apusutradhar77@gmail.com"}
                 </a>
               </div>
             </div>
@@ -86,8 +89,8 @@ const Contact: React.FC = () => {
               </div>
               <div>
                 <h4 className="font-medium text-gray-900 dark:text-white">Phone</h4>
-                <a href="tel:+8801983276843" className="text-gray-600 dark:text-gray-300 hover:text-primary">
-                  +880 1983276843
+                <a href={`tel:${contact?.[0].phone || "+8801983276843"}`} className="text-gray-600 dark:text-gray-300 hover:text-primary">
+                  {contact?.[0].phone || "+880 1983276843"}
                 </a>
               </div>
             </div>
@@ -98,7 +101,7 @@ const Contact: React.FC = () => {
               </div>
               <div>
                 <h4 className="font-medium text-gray-900 dark:text-white">Location</h4>
-                <p className="text-gray-600 dark:text-gray-300">Dhaka, Bangladesh</p>
+                <p className="text-gray-600 dark:text-gray-300">{contact?.[0].address || "Dhaka, Bangladesh"}</p>
               </div>
             </div>
           </div>

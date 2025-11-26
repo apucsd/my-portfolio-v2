@@ -187,8 +187,12 @@ const ExperienceList: React.FC = () => {
                         <Input placeholder="e.g., Dhaka, Bangladesh" />
                     </Form.Item>
 
-                    <Form.Item name="dateRange" label="Duration" rules={[{ required: true, message: 'Please select duration' }]}>
-                        <RangePicker style={{ width: '100%' }} />
+                    <Form.Item name="startDate" label="Start Date" rules={[{ required: true, message: 'Please select start date' }]}>
+                        <DatePicker style={{ width: '100%' }} />
+                    </Form.Item>
+
+                    <Form.Item name="endDate" label="End Date" rules={[{ required: false, message: 'Please select end date' }]}>
+                        <DatePicker style={{ width: '100%' }} />
                     </Form.Item>
 
                     <Form.Item label="Work Responsibilities">
@@ -196,7 +200,7 @@ const ExperienceList: React.FC = () => {
                             {(fields, { add, remove }) => (
                                 <>
                                     {fields.map((field) => (
-                                        <Space key={field.key} style={{ display: 'flex', marginBottom: 8 }} align="baseline">
+                                        <div key={field.key} style={{ display: 'flex', gap: '8px', marginBottom: 8, alignItems: 'flex-start' }}>
                                             <Form.Item
                                                 {...field}
                                                 rules={[{ required: true, message: 'Please enter work description' }]}
@@ -205,9 +209,12 @@ const ExperienceList: React.FC = () => {
                                                 <TextArea rows={2} placeholder="Describe your work..." />
                                             </Form.Item>
                                             {fields.length > 1 && (
-                                                <MinusCircleOutlined onClick={() => remove(field.name)} />
+                                                <MinusCircleOutlined
+                                                    onClick={() => remove(field.name)}
+                                                    style={{ fontSize: '16px', color: '#ff4d4f', cursor: 'pointer', marginTop: '8px' }}
+                                                />
                                             )}
-                                        </Space>
+                                        </div>
                                     ))}
                                     <Button type="dashed" onClick={() => add()} block icon={<PlusOutlined />}>
                                         Add Work Item
@@ -221,8 +228,8 @@ const ExperienceList: React.FC = () => {
                         <Input placeholder="React, Node.js, MongoDB (comma separated)" />
                     </Form.Item>
                 </Form>
-            </Modal>
-        </Card>
+            </Modal >
+        </Card >
     );
 };
 

@@ -9,20 +9,18 @@ import {
     ContactLinks,
     User,
 } from '../types/admin.types';
+import { RootState } from './store';
 
-const BASE_URL = 'http://localhost:5000/api/v1';
+const BASE_URL = 'https://my-portfolio-v2-backend.onrender.com/api/v1';
 
-// Helper to get auth token
-const getAuthToken = () => {
-    return localStorage.getItem('portfolio_admin_token') || '';
-};
+
 
 export const apiSlice = createApi({
     reducerPath: 'api',
     baseQuery: fetchBaseQuery({
         baseUrl: BASE_URL,
-        prepareHeaders: (headers) => {
-            const token = getAuthToken();
+        prepareHeaders: (headers, { getState }) => {
+            const token = (getState() as RootState).auth.token;
             if (token) {
                 headers.set('Authorization', `Bearer ${token}`);
             }

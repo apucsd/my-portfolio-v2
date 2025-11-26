@@ -1,9 +1,11 @@
 import React from 'react';
 import Section from '../ui/Section';
-import {  certifications } from '../../data';
 import { GraduationCap } from 'lucide-react';
+import { useGetCoursesQuery } from '../../store/apiSlice';
 
 const Certifications: React.FC = () => {
+  const { data: certifications } = useGetCoursesQuery()
+  console.log(certifications)
   return (
     <Section
       id="certifications"
@@ -26,8 +28,8 @@ const Certifications: React.FC = () => {
         </div>
 
         {/* Experience items in reverse order */}
-        {[...certifications].reverse().map((cert) => (
-          <div key={cert.id} className="mb-10 last:mb-0 group">
+        {certifications?.map((cert) => (
+          <div key={cert?.id} className="mb-10 last:mb-0 group">
             <div className="flex flex-col sm:flex-row sm:items-start">
               {/* Timeline dot and year */}
               <div className="flex flex-row sm:flex-col items-center sm:items-start mb-4 sm:mb-0">
@@ -38,7 +40,7 @@ const Certifications: React.FC = () => {
                 </div>
 
                 <div className="z-[90] ml-3 sm:ml-0 sm:mt-3 relative text-sm font-medium text-zinc-500 dark:text-zinc-400">
-                  {cert.date}
+                  {cert?.year}
                 </div>
               </div>
 
@@ -48,17 +50,17 @@ const Certifications: React.FC = () => {
                   <div className="flex flex-col mb-4">
                     <div className="flex items-center justify-between">
                       <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">
-                        {cert.title}
+                        {cert?.title}
                       </h3>
                       <span className="hidden sm:flex text-xs px-2 py-1 bg-zinc-100 dark:bg-primary/5 text-zinc-600 dark:text-primary rounded-full">
-                        {cert.date}
+                        {cert?.year}
                       </span>
                     </div>
 
                     <div className="flex items-center text-orange-600 dark:text-primary mt-1 text-sm space-x-4 font-medium">
                       <div className="flex items-center justify-end w-full gap-4">
-                        <p className="mr-auto">{cert.issuer}</p>
-                       { cert.link && <a href={cert.link} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                        <p className="mr-auto">{cert?.institution}</p>
+                        {cert?.certificate && <a href={cert?.certificate} target="_blank" rel="noopener noreferrer" className="hover:underline">
                           View Certificate
                         </a>}
                       </div>

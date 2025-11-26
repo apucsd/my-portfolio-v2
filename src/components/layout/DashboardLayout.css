@@ -1,0 +1,307 @@
+/* Modern Sider Styles */
+.modern-sider .ant-layout-sider-children {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Modern Menu Styles */
+.modern-menu.ant-menu-inline,
+.modern-menu.ant-menu-inline .ant-menu-sub {
+    background: transparent !important;
+}
+
+/* Menu Items */
+.modern-menu .ant-menu-item,
+.modern-menu .ant-menu-submenu-title {
+    margin: 4px 0 !important;
+    height: 44px !important;
+    line-height: 44px !important;
+    border-radius: 10px !important;
+    color: #8b92a7 !important;
+    font-weight: 500 !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.modern-menu .ant-menu-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: #7CCF00;
+    transform: scaleY(0);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 0 4px 4px 0;
+}
+
+/* Menu Item Hover */
+.modern-menu .ant-menu-item:hover,
+.modern-menu .ant-menu-submenu-title:hover {
+    background: rgba(124, 207, 0, 0.1) !important;
+    color: #7CCF00 !important;
+}
+
+.modern-menu .ant-menu-item:hover::before {
+    transform: scaleY(1);
+}
+
+/* Selected Menu Item */
+.modern-menu .ant-menu-item-selected {
+    background: linear-gradient(90deg, rgba(124, 207, 0, 0.15) 0%, rgba(124, 207, 0, 0.05) 100%) !important;
+    color: #7CCF00 !important;
+    border: 1px solid rgba(124, 207, 0, 0.3) !important;
+    box-shadow: 0 2px 8px rgba(124, 207, 0, 0.2) !important;
+}
+
+.modern-menu .ant-menu-item-selected::before {
+    transform: scaleY(1);
+}
+
+/* Menu Icons */
+.modern-menu .ant-menu-item .anticon,
+.modern-menu .ant-menu-submenu-title .anticon {
+    font-size: 18px !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.modern-menu .ant-menu-item:hover .anticon,
+.modern-menu .ant-menu-submenu-title:hover .anticon,
+.modern-menu .ant-menu-item-selected .anticon {
+    color: #7CCF00 !important;
+    transform: scale(1.1);
+}
+
+/* Submenu */
+.modern-menu .ant-menu-submenu-open>.ant-menu-submenu-title {
+    background: rgba(124, 207, 0, 0.08) !important;
+    color: #7CCF00 !important;
+}
+
+.modern-menu .ant-menu-sub {
+    background: rgba(0, 0, 0, 0.2) !important;
+    border-radius: 8px !important;
+    margin: 4px 0 !important;
+    padding: 4px 0 !important;
+}
+
+.modern-menu .ant-menu-sub .ant-menu-item {
+    padding-left: 48px !important;
+    height: 40px !important;
+    line-height: 40px !important;
+}
+
+/* Submenu Arrow */
+.modern-menu .ant-menu-submenu-arrow {
+    color: #8b92a7 !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.modern-menu .ant-menu-submenu-title:hover .ant-menu-submenu-arrow,
+.modern-menu .ant-menu-submenu-open>.ant-menu-submenu-title .ant-menu-submenu-arrow {
+    color: #7CCF00 !important;
+}
+
+/* NavLink Styles */
+.modern-menu a {
+    color: inherit !important;
+    text-decoration: none !important;
+    display: block;
+    width: 100%;
+}
+
+/* Scrollbar Styles */
+.modern-sider::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modern-sider::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+}
+
+.modern-sider::-webkit-scrollbar-thumb {
+    background: rgba(124, 207, 0, 0.3);
+    border-radius: 3px;
+    transition: background 0.3s;
+}
+
+.modern-sider::-webkit-scrollbar-thumb:hover {
+    background: rgba(124, 207, 0, 0.5);
+}
+
+/* Collapsed State Adjustments */
+.ant-layout-sider-collapsed .modern-menu .ant-menu-item,
+.ant-layout-sider-collapsed .modern-menu .ant-menu-submenu-title {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    text-align: center;
+    justify-content: center;
+}
+
+.ant-layout-sider-collapsed .modern-menu .ant-menu-item .anticon,
+.ant-layout-sider-collapsed .modern-menu .ant-menu-submenu-title .anticon {
+    margin: 0 !important;
+}
+
+/* Dropdown Menu Styles */
+.ant-dropdown {
+    z-index: 1050 !important;
+}
+
+.ant-dropdown-menu {
+    background: linear-gradient(135deg, rgba(12, 21, 36, 0.98) 0%, rgba(26, 31, 46, 0.98) 100%) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(124, 207, 0, 0.3) !important;
+    border-radius: 16px !important;
+    padding: 12px !important;
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.6),
+        0 0 0 1px rgba(124, 207, 0, 0.1) inset !important;
+    min-width: 200px !important;
+    overflow: hidden !important;
+}
+
+/* Dropdown Menu Items */
+.ant-dropdown-menu-item {
+    color: #e2e8f0 !important;
+    border-radius: 10px !important;
+    padding: 12px 16px !important;
+    margin: 4px 0 !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    font-weight: 500 !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+/* Dropdown Item Hover Effect */
+.ant-dropdown-menu-item:hover {
+    background: linear-gradient(90deg, rgba(124, 207, 0, 0.2) 0%, rgba(124, 207, 0, 0.1) 100%) !important;
+    color: #7CCF00 !important;
+    transform: translateX(4px) !important;
+}
+
+/* Dropdown Item Before Pseudo Element for Accent */
+.ant-dropdown-menu-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: #7CCF00;
+    transform: scaleY(0);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 0 4px 4px 0;
+}
+
+.ant-dropdown-menu-item:hover::before {
+    transform: scaleY(1);
+}
+
+/* Dropdown Icons */
+.ant-dropdown-menu-item .anticon {
+    color: #8b92a7 !important;
+    font-size: 16px !important;
+    margin-right: 12px !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.ant-dropdown-menu-item:hover .anticon {
+    color: #7CCF00 !important;
+    transform: scale(1.1) !important;
+}
+
+/* Dropdown Divider */
+.ant-dropdown-menu-item-divider {
+    background: linear-gradient(90deg, transparent 0%, rgba(124, 207, 0, 0.3) 50%, transparent 100%) !important;
+    margin: 8px 0 !important;
+    height: 1px !important;
+}
+
+/* NavLink in Dropdown */
+.ant-dropdown-menu-item a {
+    color: inherit !important;
+    text-decoration: none !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* Dropdown Arrow/Popup */
+.ant-dropdown-arrow {
+    display: none !important;
+}
+
+/* Add subtle glow effect on hover */
+.ant-dropdown-menu-item:hover::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 10px;
+    background: radial-gradient(circle at center, rgba(124, 207, 0, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+/* Logout Item Special Styling */
+.ant-dropdown-menu-item:last-child {
+    border-top: 1px solid rgba(124, 207, 0, 0.15);
+    margin-top: 8px !important;
+    padding-top: 12px !important;
+}
+
+.ant-dropdown-menu-item:last-child:hover {
+    background: linear-gradient(90deg, rgba(239, 68, 68, 0.2) 0%, rgba(239, 68, 68, 0.1) 100%) !important;
+    color: #ef4444 !important;
+}
+
+.ant-dropdown-menu-item:last-child:hover .anticon {
+    color: #ef4444 !important;
+}
+
+/* Animation for dropdown appearance */
+@keyframes dropdownSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.ant-dropdown-menu {
+    animation: dropdownSlideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+
+/* Animation for menu items */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.modern-menu .ant-menu-item,
+.modern-menu .ant-menu-submenu {
+    animation: slideInLeft 0.3s ease-out;
+}
+
+/* Glow effect on active item */
+.modern-menu .ant-menu-item-selected::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 10px;
+    background: radial-gradient(circle at center, rgba(124, 207, 0, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}

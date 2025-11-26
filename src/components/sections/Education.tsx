@@ -1,9 +1,12 @@
 import React from "react";
 import Section from "../ui/Section";
-import { education } from "../../data";
+// import { education } from "../../data";
 import { GraduationCap } from "lucide-react";
+import { useGetEducationsQuery } from "../../store/apiSlice";
 
 const Education: React.FC = () => {
+  const { data: educations } = useGetEducationsQuery()
+  // console.log(educations)
   return (
     <Section
       id="education"
@@ -26,8 +29,8 @@ const Education: React.FC = () => {
         </div>
 
         {/* Experience items in reverse order */}
-        {[...education].reverse().map((edu) => (
-          <div key={edu.id} className="mb-10 last:mb-0">
+        {educations?.map((edu) => (
+          <div key={edu?.id} className="mb-10 last:mb-0">
             <div className="flex flex-col sm:flex-row sm:items-start">
               {/* Timeline dot and year */}
               <div className="flex flex-row sm:flex-col items-center sm:items-start mb-4 sm:mb-0">
@@ -38,7 +41,7 @@ const Education: React.FC = () => {
                 </div>
 
                 <div className="z-[90] ml-3 sm:ml-0 sm:mt-3 relative text-sm font-medium text-zinc-500 dark:text-zinc-400">
-                  {edu.duration.split("-")[0]}
+                  {edu?.passingYear.split("-")[0]}
                 </div>
               </div>
 
@@ -48,24 +51,24 @@ const Education: React.FC = () => {
                   <div className="flex flex-col mb-4">
                     <div className="flex items-center justify-between">
                       <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">
-                        {edu.degree}
+                        {edu?.name}
                       </h3>
                       <span className="hidden sm:flex text-xs px-2 py-1 bg-zinc-100 dark:bg-primary/5 text-zinc-600 dark:text-primary rounded-full">
-                        {edu.duration}
+                        {edu?.passingYear}
                       </span>
                     </div>
 
                     <div className="flex items-center text-orange-600 dark:text-primary mt-1 text-sm space-x-4 font-medium">
                       <div className="flex items-center">
                         {/* <Building size={14} className="mr-1" /> */}
-                        <span>{edu.institution}</span>
+                        <span>{edu?.institution}</span>
                       </div>
                     </div>
                   </div>
 
                   <div className="flex flex-wrap gap-2 mt-4">
                     <p className="text-sm text-zinc-600 dark:text-zinc-300">
-                      {edu.description}
+                      {edu?.description}
                     </p>
                   </div>
                 </div>
