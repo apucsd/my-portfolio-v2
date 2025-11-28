@@ -157,7 +157,7 @@ const CoursesList: React.FC = () => {
                         <TextArea rows={4} placeholder="Describe what you learned..." />
                     </Form.Item>
 
-                    <Form.Item name="certificate" label="Certificate URL" rules={[{ required: true, message: 'Please enter certificate URL' }]}>
+                    <Form.Item name="certificate" label="Certificate URL" rules={[{ required: false, message: 'Please enter certificate URL' }]}>
                         <Input placeholder="https://example.com/certificate" />
                     </Form.Item>
                 </Form>
