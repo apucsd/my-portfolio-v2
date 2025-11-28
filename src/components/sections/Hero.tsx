@@ -131,7 +131,7 @@ const Hero = () => {
                   <div className="w-full h-full rounded-2xl bg-white dark:bg-zinc-900 flex items-center justify-center">
                     <div className="w-full h-full rounded-2xl overflow-hidden">
                       <img
-                        src="https://i.ibb.co/99p5gwxp/IMG-20250817-173712.jpg"
+                        src="https://i.ibb.co.com/qY067gFy/me-off.png"
                         alt="Apu Sutra Dhar"
                         className="w-full h-full object-cover"
                       />
